@@ -121,7 +121,7 @@ $timeline = [
                 <!-- Search Bar -->
                 <div class="global-search nav-search">
                     <i class="fas fa-search search-icon"></i>
-                    <input type="text" class="search-input" id="siteSearchInput" placeholder="Search movies & characters..." onkeyup="performSiteSearch()">
+                    <input type="text" class="search-input" id="siteSearchInput" placeholder="Search movies & characters...">
                 </div>
                 <?php if ($isAdmin): ?>
                     <a href="dashboard.php" class="btn btn-login" style="margin-right:.5rem;">

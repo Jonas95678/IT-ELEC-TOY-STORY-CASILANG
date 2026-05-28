@@ -196,7 +196,7 @@ $displayChars  = (int) mysqli_num_rows(mysqli_query($conn, "SELECT id FROM `$tab
                     <!-- Global Search -->
                     <div class="global-search">
                         <i class="fas fa-search search-icon"></i>
-                        <input type="text" class="search-input" id="globalSearchInput" placeholder="Search movies & characters..." onkeyup="performSearch()">
+                        <input type="text" class="search-input" id="globalSearchInput" placeholder="Search movies & characters...">
                     </div>
                     <a href="index.php" target="_blank" class="view-site-btn">
                         <i class="fas fa-external-link-alt"></i>
@@ -283,7 +283,7 @@ $displayChars  = (int) mysqli_num_rows(mysqli_query($conn, "SELECT id FROM `$tab
                                     <th style="text-align:center">Actions</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="moviesTableBody">
                             <?php
                             $mq = mysqli_query($conn,
                                 "SELECT id, title, release_year, runtime, rating, poster_url, is_displayed
@@ -378,7 +378,7 @@ $displayChars  = (int) mysqli_num_rows(mysqli_query($conn, "SELECT id FROM `$tab
                                     <th style="text-align:center">Actions</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="charactersTableBody">
                             <?php
                             $cq = mysqli_query($conn,
                                 "SELECT id, `name`, role, quote, avatar_url, is_displayed
