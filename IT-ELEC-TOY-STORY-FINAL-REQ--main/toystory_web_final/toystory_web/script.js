@@ -321,44 +321,4 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('%c🤠 Welcome to Andy\'s Room! 🚀', 'font-size: 20px; color: #F4C542; text-shadow: 0 0 10px rgba(244, 197, 66, 0.5);');
     console.log('%cTo Infinity and Beyond!', 'font-size: 14px; color: #2ECC71;');
     console.log('%cMade with ❤️ for Pixar fans everywhere.', 'font-size: 12px; color: #9B59B6;');
-
-    // ========================================
-    // SITE SEARCH FUNCTIONALITY
-    // ========================================
 });
-
-// Site Search - Searches movies and characters sections
-function performSiteSearch() {
-    const searchInput = document.getElementById('siteSearchInput');
-    if (!searchInput) return;
-    
-    const query = searchInput.value.toLowerCase().trim();
-    
-    // Search Movie Cards
-    const movieCards = document.querySelectorAll('.movie-card');
-    movieCards.forEach(card => {
-        const title = card.querySelector('h3')?.textContent.toLowerCase() || '';
-        const tagline = card.querySelector('.movie-tagline')?.textContent.toLowerCase() || '';
-        const year = card.querySelector('.year-badge')?.textContent.toLowerCase() || '';
-        
-        if (query === '' || title.includes(query) || tagline.includes(query) || year.includes(query)) {
-            card.style.display = '';
-        } else {
-            card.style.display = 'none';
-        }
-    });
-    
-    // Search Character Cards
-    const charCards = document.querySelectorAll('.character-card');
-    charCards.forEach(card => {
-        const name = card.querySelector('.character-name')?.textContent.toLowerCase() || '';
-        const role = card.querySelector('.character-role')?.textContent.toLowerCase() || '';
-        const quote = card.querySelector('.character-quote')?.textContent.toLowerCase() || '';
-        
-        if (query === '' || name.includes(query) || role.includes(query) || quote.includes(query)) {
-            card.style.display = '';
-        } else {
-            card.style.display = 'none';
-        }
-    });
-}

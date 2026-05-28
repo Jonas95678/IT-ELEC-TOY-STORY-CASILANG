@@ -1,1 +1,65 @@
-Nothing needs to be added to the .gitignore file since the changes only include PHP source files (dashboard.php, index.php) which are core project files that should be tracked in version control. No build artifacts, dependencies, temporary files, or other ignorable items were detected in the file changes.
+```gitignore
+# Compiled and build artifacts
+*.pyc
+__pycache__/
+*.o
+*.obj
+*.class
+*.exe
+*.dll
+*.so
+*.a
+*.out
+
+# Dependencies
+node_modules/
+venv/
+.venv/
+.env
+.env.local
+*.env.*
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+*.swo
+
+# Editors
+.vscode/
+.idea/
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
+
+# Build directories
+dist/
+build/
+target/
+.gradle/
+
+# Python specific
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.Python
+*.so
+.Python
+*.egg-info/
+.eggs/
+.mypy_cache/
+.pytest_cache/
+.tox/
+
+# Web specific
+*.min.js
+*.min.css
+.sass-cache/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+```
