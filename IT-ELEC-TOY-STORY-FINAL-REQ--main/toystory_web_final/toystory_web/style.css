@@ -718,6 +718,46 @@
     .nav-actions {
         display: flex;
         align-items: center;
+        gap: 1rem;
+    }
+
+    /* Global Search - Same design as dashboard */
+    .global-search {
+        position: relative;
+        width: 280px;
+    }
+
+    .global-search.nav-search {
+        width: 250px;
+    }
+
+    .search-input {
+        width: 100%;
+        padding: 0.6rem 1rem 0.6rem 2.8rem;
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: var(--radius-large);
+        color: var(--text-cream);
+        font-family: 'Nunito', sans-serif;
+        font-size: 0.9rem;
+        backdrop-filter: var(--glass-blur);
+        transition: all 0.3s ease;
+    }
+
+    .search-input:focus {
+        outline: none;
+        border-color: var(--warm-gold);
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+        background: rgba(255, 255, 255, 0.08);
+    }
+
+    .search-icon {
+        position: absolute;
+        left: 0.9rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--moonlight-silver);
+        font-size: 0.9rem;
     }
 
     .btn-login {
@@ -2128,11 +2168,24 @@
             opacity: 0;
             pointer-events: none;
             transition: var(--transition-fast);
+            flex-direction: column;
+            gap: 0.8rem;
         }
 
         .nav-actions.active {
             opacity: 1;
             pointer-events: all;
+        }
+
+        /* Hide search on mobile initially, show when active */
+        .global-search.nav-search {
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .nav-actions .search-input {
+            font-size: 1rem;
+            padding: 0.7rem 1.2rem 0.7rem 3rem;
         }
 
         .btn-login {

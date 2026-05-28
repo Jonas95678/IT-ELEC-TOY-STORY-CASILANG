@@ -258,20 +258,52 @@ document.addEventListener('DOMContentLoaded', function() {
     // SEARCH & FILTER FUNCTIONALITY (UI Only)
     // ========================================
     
-    // Global Search with Debounce
-    const globalSearch = document.getElementById('globalSearch');
+    // Global Search with Debounce - Searches both movies and characters tables
+    const globalSearchInput = document.getElementById('globalSearchInput');
     
-    if (globalSearch) {
+    if (globalSearchInput) {
         let searchTimeout;
-        globalSearch.addEventListener('input', function() {
+        globalSearchInput.addEventListener('input', function() {
             clearTimeout(searchTimeout);
-            const query = this.value;
+            const query = this.value.toLowerCase().trim();
             
             searchTimeout = setTimeout(() => {
+                // Search Movies table
+                const movieRows = document.querySelectorAll('#moviesTableBody tr');
+                movieRows.forEach(row => {
+                    const title = row.cells[2]?.textContent.toLowerCase() || '';
+                    const year = row.cells[3]?.textContent.toLowerCase() || '';
+                    if (query === '' || title.includes(query) || year.includes(query)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+                
+                // Search Characters table
+                const charRows = document.querySelectorAll('#charactersTableBody tr');
+                charRows.forEach(row => {
+                    const name = row.cells[2]?.textContent.toLowerCase() || '';
+                    const role = row.cells[3]?.textContent.toLowerCase() || '';
+                    if (query === '' || name.includes(query) || role.includes(query)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+                
                 console.log('Global search:', query);
-                // Placeholder: Add your search implementation here
             }, 300);
         });
+    }
+
+    // Perform Search function for inline onkeyup handler
+    function performSearch() {
+        const searchInput = document.getElementById('globalSearchInput');
+        if (searchInput) {
+            const event = new Event('input');
+            searchInput.dispatchEvent(event);
+        }
     }
 
     // Movie Search Filter
