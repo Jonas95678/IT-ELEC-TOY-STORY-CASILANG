@@ -193,6 +193,11 @@ $displayChars  = (int) mysqli_num_rows(mysqli_query($conn, "SELECT id FROM `$tab
                     </div>
                 </div>
                 <div class="topbar-right">
+                    <!-- Global Search -->
+                    <div class="global-search">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" class="search-input" id="globalSearchInput" placeholder="Search movies & characters..." onkeyup="performSearch()">
+                    </div>
                     <a href="index.php" target="_blank" class="view-site-btn">
                         <i class="fas fa-external-link-alt"></i>
                         <span>View Site</span>

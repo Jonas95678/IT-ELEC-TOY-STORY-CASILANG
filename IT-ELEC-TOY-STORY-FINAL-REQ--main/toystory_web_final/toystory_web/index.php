@@ -118,6 +118,11 @@ $timeline = [
                 <li><a href="#contact"    class="nav-link">Contact</a></li>
             </ul>
             <div class="nav-actions" id="navActions">
+                <!-- Search Bar -->
+                <div class="global-search nav-search">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" id="siteSearchInput" placeholder="Search movies & characters..." onkeyup="performSiteSearch()">
+                </div>
                 <?php if ($isAdmin): ?>
                     <a href="dashboard.php" class="btn btn-login" style="margin-right:.5rem;">
                         <i class="fas fa-tachometer-alt"></i>
@@ -405,7 +410,7 @@ $timeline = [
                         </div>
                         <div class="character-overlay"></div>
                         <div class="character-info">
-                            <h3><?php echo $charName; ?></h3>
+                            <h3 class="character-name"><?php echo $charName; ?></h3>
                             <p class="character-role"><?php echo $charRole; ?></p>
                             <p class="character-quote"><?php echo $charQuote; ?></p>
                             <p class="character-description"><?php echo $charDesc; ?></p>
